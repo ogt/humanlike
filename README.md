@@ -3,7 +3,7 @@ Emulates human to generate random timeseries of web session activity
 [![Build Status](https://travis-ci.org/ogt/humanlike.png)](https://travis-ci.org/ogt/humanlike)
 
 ## Synopsis
-Produces a sequence of numbers [0 - 86399] (nth second within the day) that represent the timings of all the google 
+Produces a sequence of numbers 0 - 86399 (nth second within the day) that represent the timings of all the google 
 searches comimg from a regular google user.
 
 ## Usage
