@@ -1,6 +1,6 @@
 {
   "name": "humanlike",
-  "description": "Emulates human to generates random timeseries of web session activity",
+  "description": "Emulates human to generate random timeseries of web session activity",
   "homepage": "https://github.com/ogt/humanlike",
   "version": "0.1.0",
   "repository": {
