@@ -3,7 +3,7 @@ Emulates human to generate random timeseries of web session activity
 [![Build Status](https://travis-ci.org/ogt/humanlike.png)](https://travis-ci.org/ogt/humanlike)
 
 ## Synopsis
-Produces a sequence of numbers [0 - 86399] (nth second within the day) that represent the timings of all the google 
+Produces a sequence of numbers 0 - 86399 (nth second within the day) that represent the timings of all the google 
 searches comimg from a regular google user.
 
 ## Usage
@@ -40,21 +40,22 @@ searches comimg from a regular google user.
 The sequence of seconds genarated by the function is randomized so as it is different every time.
 The first parameter controls (approximately) the length of the resulting array.
 
-The function could be used by someone that wants to emulate a user that accesses any site - not just searching.
 It uses a simple model to approximate the human activity : 
  - a user has regular online activity patterns that repeat approximately every day
  - the activity follows a typical "9-5" working day 
  - weekdays differ from weekends both in term of the intensity of activity (weekends sporadic) as well as in terms of when online access starts/ends
- - during the course of the time the user occassionally needs to find sth at which point he performs a sequence of consecutive searches until they find what they are looking for or give up
+ - during the course of a day they occassionally need to google something at which point they performs a sequence of consecutive searches until they find what they are looking for or give up
  - during the course of a day the number of such sessions can be approximated with a poisson distribution based on the mean # of searches per day
  - search sessions can be assumed to be uniformely spread throughout the course of the person's online activity
  - online activity start/end follows a normal distribution of the habitual times.
  - interval between subsequent searches are also normal distribution of the time it takes to assess the result
- - given that every search can bring the desired result to the user - a bernouli distribution/coin-toss can be used to   determine if a user finds or not the result (if not search again). The fairness p of the coin toss can be derived by the mean # of searches in a session - which can be a configurable parameter (how search-smart the user is).
+ - given that every search can bring the desired result to the user - a bernoulli distribution/coin-toss can be used to   determine if a user finds or not the result (if not search again). The fairness p of the coin toss can be derived by the mean # of searches in a session - which can be a configurable parameter (how search-smart the user is).
 
-Given the model above the function's primary parameter (# of searches per day) can be used together with the poisson derived # of session to determine the # of sessions in the day. Due to time potential overlap a session is not guaranteed to finish - the user may "jump" to sth else.
+Given the model above the function's primary parameter (# of searches per day) can be used together with the poisson derived # of session to determine the # of sessions in the day. Due to potential overlap a session is not guaranteed to finish - the user may "jump" to google sth else.
 
 The function allows for timezone offset, as well as a parameter that can be used to determine the day of the week (e.g. weekday vs weekend behavior variation)
+
+The function could be used by someone that wants to emulate a user that accesses any site - not just searching.
 
 Model defaults
 ```
